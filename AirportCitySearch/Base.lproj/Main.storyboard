@@ -1,24 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search CityVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchCityVC" id="BYZ-38-t0r" customClass="SearchCityVC" customModule="AirportCitySearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aey-2P-oCz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="150"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Searcg City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3r-Wd-HuE">
+                                        <rect key="frame" x="16" y="45" width="382" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Aep-hY-e2g"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstItem="e3r-Wd-HuE" firstAttribute="centerX" secondItem="Aey-2P-oCz" secondAttribute="centerX" id="8MY-xn-bDK"/>
+                                    <constraint firstItem="e3r-Wd-HuE" firstAttribute="leading" secondItem="Aey-2P-oCz" secondAttribute="leading" constant="16" id="dgk-d2-OPm"/>
+                                    <constraint firstItem="e3r-Wd-HuE" firstAttribute="centerY" secondItem="Aey-2P-oCz" secondAttribute="centerY" id="mRJ-Af-wgc"/>
+                                    <constraint firstAttribute="height" constant="150" id="oyf-in-Cf8"/>
+                                    <constraint firstAttribute="trailing" secondItem="e3r-Wd-HuE" secondAttribute="trailing" constant="16" id="v1T-hl-bJi"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TU7-R7-kqF">
+                                <rect key="frame" x="0.0" y="194" width="414" height="668"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TU7-R7-kqF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0w1-rm-Pyy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Aey-2P-oCz" secondAttribute="trailing" id="9yR-OH-aPB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TU7-R7-kqF" secondAttribute="bottom" id="IvR-7l-Y8R"/>
+                            <constraint firstItem="Aey-2P-oCz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LbZ-v1-9aT"/>
+                            <constraint firstItem="Aey-2P-oCz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cEr-Yh-75B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TU7-R7-kqF" secondAttribute="trailing" id="cSP-dO-Yri"/>
+                            <constraint firstItem="TU7-R7-kqF" firstAttribute="top" secondItem="Aey-2P-oCz" secondAttribute="bottom" id="pCb-Hm-vXC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="roundedView" destination="Aey-2P-oCz" id="0J4-ZW-VoB"/>
+                        <outlet property="searchTextField" destination="e3r-Wd-HuE" id="mM4-Iw-A42"/>
+                        <outlet property="tableview" destination="TU7-R7-kqF" id="5v6-ea-lF1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="19" y="89"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
